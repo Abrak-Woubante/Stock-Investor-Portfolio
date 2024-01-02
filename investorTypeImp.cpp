@@ -1,28 +1,3 @@
-/*
-Name: Wouabante,Abrak NSHE: 5007305246, CLASS-SECTION: CS202, ASSIGNMENT: 3
-Description: In investing, what is comfortable is rarely profitable.
-Input: Develop stockInvestor(base class) that can be useful to set 
-firstName, lastName and ID; set the investors data using setters or 
-constructors from stockInvestors class; 
-investorType is a derived (inheritance: is-a relationship) class from 
-stockInvestor class and is useful to set the investor type, stock name, 
-number of stocks, and stock price; 
-stocksPortfolio is a base class with an object of other 
-class(investorType) (Composition: has-a relationshipinvestorType).
-stocksPortfolio is to set 3 different prices;
-Output: Write the investors data to a file(investorsData.txt) following 
-the driver code in stocksMain.cpp. The objects declaration of different 
-classes, using constructors, setters, member functions to calculate the
-portfolio of each investor. The investors' portfolios (reports) are 
-printed on terminal.
-In fileIO:
-This class has only one member function. The member function returns the 
-number of entries
-Read the data from (investorsData.txt) file; use constructors, setters, 
-member functions to calculate the portfolio of each investor. Finally,
-write the investors' portfolios (reports) to an outputfile 
-(investorsPortfolio.txt). 
-*/
 #include "investorType.h"
 #include<iostream>
 #include<iomanip>
@@ -37,15 +12,15 @@ investorType::investorType(){
  investorType::investorType(string id, string fName, string lName,
     string tyName, string stName, int stCount, double stPrice, 
     ostream &output):stockInvestor(fName,lName,id){
-        setInvestorID(id);//set the id
-        if(checkInvestorID(id)==false){//checkinh
+        setInvestorID(id);
+        if(checkInvestorID(id)==false){
             output<<"Invalid ID; No calculations for "<<fName<<"; ID "<<id<<endl;
-        }else if(stCount<0){//connect my if statements so they can work
+        }else if(stCount<0){
              output<<fName<<"'s stock count is invalid"<<endl;
-        }else if(stPrice<0){ //check the price
+        }else if(stPrice<0){ 
             output<<fName<<"'s stock price is invalid"<<endl;
         }
-        typeName=tyName;//set the others
+        typeName=tyName;
         stockName=stName;
         stockCount=stCount;
         stockPrice=stPrice;
@@ -63,57 +38,57 @@ investorType::investorType(){
     }
 
     void investorType::setType(string tyName){
-        typeName=tyName;//set the type
+        typeName=tyName;
     }
 
     void investorType::setStockName(string stName){
-        stockName=stName;//set stock name
+        stockName=stName;
     }
 
     void investorType::setStockCount(int stCount){
-        stockCount=stCount;//set the stock count
+        stockCount=stCount;
     }
 
     void investorType::setStockPrice(double stPrice){
-        stockPrice=stPrice;//set the stock price
+        stockPrice=stPrice;
     }
 
     string investorType::getID() const{
-        return stockInvestor::getID();//get the id
+        return stockInvestor::getID();
     }
 
     string investorType::getFirstName() const{
-        return stockInvestor::getFirstName();//first name from other clas
+        return stockInvestor::getFirstName();
     }
 
     string investorType::getLastName() const{
-        return stockInvestor::getLastName();//last name from other class
+        return stockInvestor::getLastName();
     }
 
     string investorType::getType() const{
-        return typeName;//get the time
+        return typeName;
     }
     string investorType::getStockName() const{
-        return stockName;//return the stock name
+        return stockName;
     }
 
     double investorType::getStockPrice() const{
-        return stockPrice;//get the stock price
+        return stockPrice;
     }
 
     double investorType::getStockCount() const{
-        return stockCount;//get the stockCount
+        return stockCount;
     }
 
     void investorType::print(ostream &outFile) const{
-        outFile <<fixed<<showpoint<<setprecision(2);//for first line
-        outFile<<endl;//spacing
-        string dashes;//print dashes
-        dashes.append(50,'_');//make 50 if them
+        outFile <<fixed<<showpoint<<setprecision(2);
+        outFile<<endl;
+        string dashes;
+        dashes.append(50,'_');
         string stars; 
-        stars.append(65, '*'); //make 65 starts
-        outFile << stars << endl;//maybe change to outFile
-        outFile<<"Investor Type:"<<endl;//print to ostream object
+        stars.append(65, '*'); 
+        outFile << stars << endl;
+        outFile<<"Investor Type:"<<endl;
         outFile<<"Type Name: "<<getType()<<endl;
         outFile<<"Investor ID: "<<getID()<<endl;
         outFile<<"First Name: "<<getFirstName()<<endl;
@@ -122,7 +97,7 @@ investorType::investorType(){
         outFile<<"Stock Name: "<<getStockName()<<endl;
         outFile<<"Stock Count: "<<getStockCount()<<endl;
         outFile<<"Stock Price: "<<getStockPrice()<<endl;
-        outFile << dashes << endl;//print more dashes
+        outFile << dashes << endl;
 
     }
 
