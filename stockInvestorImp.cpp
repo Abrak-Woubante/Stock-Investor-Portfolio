@@ -66,7 +66,6 @@
     }
 
      void stockInvestor::print(ostream &output) const{
-       // output<<firstName<<" "<<lastName<<" "<<ID;
        output<<endl;//spacing
        output<<"Investor ID: "<<ID<<endl;//print
        output<<"First Name: "<<firstName<<endl;
