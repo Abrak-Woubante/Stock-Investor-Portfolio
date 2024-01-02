@@ -34,7 +34,6 @@ int main()
     fred.writeDataToFile(outFile, fred);
 
 
-   // cout << "ID from investorType: " << inObj1.getID() << endl;
 
     stocksPortfolio fredSP(37.89, 30.00, 25.66, fred);
     fredSP.calculateStockValue(fred, cout);
